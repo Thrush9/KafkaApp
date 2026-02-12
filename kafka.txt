@@ -6,3 +6,11 @@ docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=1 -e KAFKA_ZOOKEEPER_
 docker exec -it kafka bash
 
 kafka-topics --create --topic my-topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+kafka-topics --list --bootstrap-server localhost:9092
+
+kafka-topics --describe --topic my-topic --bootstrap-server localhost:9092
+
+kafka-console-producer --topic my-topic --bootstrap-server localhost:9092
+
+kafka-console-consumer --topic my-topic --bootstrap-server localhost:9092 --from-beginning
